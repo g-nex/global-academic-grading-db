@@ -1,0 +1,64 @@
+{
+  "scheme_id": "ca-toronto-ug-refined-letter",
+  "university": {
+    "slug": "university-of-toronto",
+    "name": "University of Toronto",
+    "country_iso2": "CA",
+    "homepage": "https://www.utoronto.ca"
+  },
+  "country": { "iso2": "CA", "name": "Canada" },
+  "faculty_program": { "slug": "undergraduate-divisions", "name": "Undergraduate divisions under University Assessment and Grading Practices Policy", "kind": "university_wide" },
+  "degree_level": "undergraduate",
+  "academic_year": { "start": 2000, "end": null, "label": "University grading practices policy refined letter scale", "open_ended": true },
+  "name": "University of Toronto undergraduate refined letter / 4-point / percent scale",
+  "grade_boundaries": [
+    { "symbol": "A+", "label": "Excellent", "grade_points": 4.0, "min_percent": 90, "max_percent": 100, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "A", "label": "Excellent", "grade_points": 4.0, "min_percent": 85, "max_percent": 89, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "A-", "label": "Excellent", "grade_points": 3.7, "min_percent": 80, "max_percent": 84, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B+", "label": "Good", "grade_points": 3.3, "min_percent": 77, "max_percent": 79, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B", "label": "Good", "grade_points": 3.0, "min_percent": 73, "max_percent": 76, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B-", "label": "Good", "grade_points": 2.7, "min_percent": 70, "max_percent": 72, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "C+", "label": "Adequate", "grade_points": 2.3, "min_percent": 67, "max_percent": 69, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "C", "label": "Adequate", "grade_points": 2.0, "min_percent": 63, "max_percent": 66, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "C-", "label": "Adequate", "grade_points": 1.7, "min_percent": 60, "max_percent": 62, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "D+", "label": "Marginal", "grade_points": 1.3, "min_percent": 57, "max_percent": 59, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "D", "label": "Marginal", "grade_points": 1.0, "min_percent": 53, "max_percent": 56, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "D-", "label": "Marginal", "grade_points": 0.7, "min_percent": 50, "max_percent": 52, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "F", "label": "Inadequate", "grade_points": 0.0, "min_percent": 0, "max_percent": 49, "passing": false, "counts_toward_gpa": true, "counts_toward_credits": false }
+  ],
+  "credit_system": { "unit": "generic_credit", "typical_full_time_load_per_year": 5.0, "conversion_notes": "St. George Arts & Science typically uses full-course equivalents; credit unit flagged as generic." },
+  "gpa_formula": {
+    "kind": "weighted_mean",
+    "scale_max": 4.0,
+    "scale_min": 0.0,
+    "rounding": "none",
+    "decimal_places": 2,
+    "description": "GPA on the 4-point scale for undergraduate divisions as described in the grading practices policy.",
+    "expression": "sum(gp * credits) / sum(credits_with_gp)"
+  },
+  "repeat_course_rules": {
+    "kind": "unknown",
+    "description": "Not stated on the KPE calendar excerpt of the university policy used here.",
+    "provenance": { "status": "unverified" }
+  },
+  "pass_fail": {
+    "treatment": "exclude_from_gpa",
+    "pass_symbols": ["CR", "H", "P"],
+    "fail_symbols": ["NCR", "F"],
+    "description": "Approved alternate scales include H/P/F and CR/NCR; CR/NCR is excluded from GPA."
+  },
+  "degree_classification": {
+    "applies": false,
+    "description": "Distinction / high distinction rules are faculty-specific (e.g. Arts & Science) and not restated in the university-wide grade table."
+  },
+  "official_sources": [
+    {
+      "title": "University Assessment & Grading Practices Policy — excerpt published by Faculty of Kinesiology and Physical Education calendar",
+      "url": "https://kpe.calendar.utoronto.ca/university-assessment-grading-practices-policy",
+      "source_class": "academic_regulations",
+      "retrieved": "2026-09-18"
+    }
+  ],
+  "verification_date": "2026-09-18",
+  "unverified_fields": ["repeat_course_rules.kind", "credit_system.unit"]
+}

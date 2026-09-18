@@ -1,0 +1,67 @@
+{
+  "scheme_id": "us-unc-chapel-hill-ug",
+  "university": {
+    "slug": "unc-chapel-hill",
+    "name": "University of North Carolina at Chapel Hill",
+    "country_iso2": "US",
+    "homepage": "https://www.unc.edu"
+  },
+  "country": { "iso2": "US", "name": "United States" },
+  "faculty_program": { "slug": "undergraduate", "name": "Undergraduate", "kind": "university_wide" },
+  "degree_level": "undergraduate",
+  "academic_year": { "start": 2000, "end": null, "label": "Undergraduate grade points as published by the Office of the University Registrar", "open_ended": true },
+  "name": "UNC–Chapel Hill undergraduate grade points",
+  "grade_boundaries": [
+    { "symbol": "A", "grade_points": 4.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "A-", "grade_points": 3.7, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B+", "grade_points": 3.3, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B", "grade_points": 3.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B-", "grade_points": 2.7, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "C+", "grade_points": 2.3, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "C", "grade_points": 2.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "C-", "grade_points": 1.7, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "D+", "grade_points": 1.3, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "D", "grade_points": 1.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "F", "grade_points": 0.0, "passing": false, "counts_toward_gpa": true, "counts_toward_credits": false }
+  ],
+  "credit_system": { "unit": "semester_hour", "typical_full_time_load_per_year": 30 },
+  "gpa_formula": {
+    "kind": "weighted_mean",
+    "scale_max": 4.0,
+    "scale_min": 0.0,
+    "rounding": "none",
+    "decimal_places": 3,
+    "description": "Standard quality-point average over A–F letter grades. Temporary IN/AB ignored; LP/PS/SP/BE/W/PL ignored.",
+    "expression": "sum(gp * hours) / sum(hours_with_gp)"
+  },
+  "repeat_course_rules": {
+    "kind": "unknown",
+    "description": "Not specified on the Explanation of Grading System page.",
+    "provenance": { "status": "unverified" }
+  },
+  "pass_fail": {
+    "treatment": "exclude_from_gpa",
+    "pass_symbols": ["PS", "SP", "BE", "PL"],
+    "fail_symbols": [],
+    "description": "Courses graded LP, PS, SP, BE, W or PL are ignored in the quality point average."
+  },
+  "degree_classification": {
+    "applies": false,
+    "description": "Latin honours exist at UNC but thresholds are not on the grading-system explanation page used here.",
+    "provenance": { "status": "unverified" }
+  },
+  "official_sources": [
+    {
+      "title": "Explanation of Grading System — Office of the University Registrar, UNC–Chapel Hill",
+      "url": "https://registrar.unc.edu/explanation-of-grading-system/",
+      "source_class": "registrar",
+      "retrieved": "2026-09-18"
+    }
+  ],
+  "verification_date": "2026-09-18",
+  "unverified_fields": ["repeat_course_rules.kind", "degree_classification"],
+  "notes": [
+    "Graduate scale is unique and must not use this table.",
+    "Law numeric scale effective August 2025 is a separate scheme."
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "scheme_id": "us-berkeley-ug-letter-current",
+  "university": {
+    "slug": "uc-berkeley",
+    "name": "University of California, Berkeley",
+    "country_iso2": "US",
+    "homepage": "https://www.berkeley.edu"
+  },
+  "country": { "iso2": "US", "name": "United States" },
+  "faculty_program": { "slug": "campus-wide", "name": "Campus-wide", "kind": "university_wide" },
+  "degree_level": "undergraduate",
+  "academic_year": { "start": 1973, "end": null, "label": "1973–present (A+ policy as published)", "open_ended": true },
+  "name": "UC Berkeley undergraduate letter grades",
+  "grade_boundaries": [
+    { "symbol": "A+", "label": "Excellent", "grade_points": 4.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true, "notes": "A+ does not receive grade points beyond A." },
+    { "symbol": "A", "label": "Excellent", "grade_points": 4.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "A-", "label": "Excellent", "grade_points": 3.7, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B+", "label": "Good", "grade_points": 3.3, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B", "label": "Good", "grade_points": 3.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B-", "label": "Good", "grade_points": 2.7, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "C+", "label": "Fair", "grade_points": 2.3, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "C", "label": "Fair", "grade_points": 2.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "C-", "label": "Fair", "grade_points": 1.7, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "D+", "label": "Barely passed", "grade_points": 1.3, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "D", "label": "Barely passed", "grade_points": 1.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "D-", "label": "Barely passed", "grade_points": 0.7, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "F", "label": "Failed", "grade_points": 0.0, "passing": false, "counts_toward_gpa": true, "counts_toward_credits": false },
+    { "symbol": "P", "label": "Pass (C- or better)", "grade_points": null, "passing": true, "counts_toward_gpa": false, "counts_toward_credits": true },
+    { "symbol": "NP", "label": "Not Pass", "grade_points": null, "passing": false, "counts_toward_gpa": false, "counts_toward_credits": false }
+  ],
+  "credit_system": { "unit": "semester_hour", "typical_full_time_load_per_year": 30 },
+  "gpa_formula": {
+    "kind": "weighted_mean",
+    "scale_max": 4.0,
+    "scale_min": 0.0,
+    "rounding": "none",
+    "decimal_places": 3,
+    "description": "Sum of (grade points per unit × units) ÷ units attempted that carry grade points.",
+    "expression": "sum(gp * units) / sum(units_with_gp)"
+  },
+  "repeat_course_rules": {
+    "kind": "unknown",
+    "description": "Campus grade-definition page does not fully specify repeat replacement in the same table; flagged.",
+    "provenance": { "status": "unverified", "note": "Repeat mechanics live in a separate regulation not captured here." }
+  },
+  "pass_fail": {
+    "treatment": "exclude_from_gpa",
+    "pass_symbols": ["P"],
+    "fail_symbols": ["NP"],
+    "description": "P/NP assigned to undergraduates only; not included in grade-point computation."
+  },
+  "degree_classification": {
+    "applies": false,
+    "description": "US bachelor's degrees at Berkeley are not awarded with UK-style honours classes on this scale."
+  },
+  "official_sources": [
+    {
+      "title": "Grade Definitions — Office of the Registrar, UC Berkeley",
+      "url": "https://registrar.berkeley.edu/faculty-staff-resources/grade-definitions/",
+      "source_class": "registrar",
+      "retrieved": "2026-09-18"
+    }
+  ],
+  "verification_date": "2026-09-18",
+  "unverified_fields": ["repeat_course_rules.kind"],
+  "notes": ["A+ = 4.0, same as A, per registrar table."]
+}

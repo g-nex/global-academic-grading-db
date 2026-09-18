@@ -1,0 +1,66 @@
+{
+  "scheme_id": "ca-mcgill-ug-current",
+  "university": {
+    "slug": "mcgill",
+    "name": "McGill University",
+    "country_iso2": "CA",
+    "homepage": "https://www.mcgill.ca"
+  },
+  "country": { "iso2": "CA", "name": "Canada" },
+  "faculty_program": { "slug": "undergraduate", "name": "Undergraduate (calendar grading table)", "kind": "university_wide" },
+  "degree_level": "undergraduate",
+  "academic_year": { "start": 2024, "end": null, "label": "Undergraduate calendar table as published", "open_ended": true },
+  "name": "McGill undergraduate letter / percent / GPA table",
+  "grade_boundaries": [
+    { "symbol": "A", "grade_points": 4.0, "min_percent": 85, "max_percent": 100, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "A-", "grade_points": 3.7, "min_percent": 80, "max_percent": 84, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B+", "grade_points": 3.3, "min_percent": 75, "max_percent": 79, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B", "grade_points": 3.0, "min_percent": 70, "max_percent": 74, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B-", "grade_points": 2.7, "min_percent": 65, "max_percent": 69, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "C+", "grade_points": 2.3, "min_percent": 60, "max_percent": 64, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "C", "grade_points": 2.0, "min_percent": 55, "max_percent": 59, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "D", "grade_points": 1.0, "min_percent": 50, "max_percent": 54, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true, "notes": "Conditional (non-continuation) pass." },
+    { "symbol": "F", "grade_points": 0.0, "min_percent": 0, "max_percent": 49, "passing": false, "counts_toward_gpa": true, "counts_toward_credits": false },
+    { "symbol": "P", "grade_points": null, "passing": true, "counts_toward_gpa": false, "counts_toward_credits": true }
+  ],
+  "credit_system": { "unit": "generic_credit", "typical_full_time_load_per_year": 30 },
+  "gpa_formula": {
+    "kind": "weighted_mean",
+    "scale_max": 4.0,
+    "scale_min": 0.0,
+    "rounding": "truncate",
+    "decimal_places": 2,
+    "description": "GPA = sum(credit × grade points) / GPA course credits. Truncated to two decimals, not rounded.",
+    "expression": "trunc(sum(gp * credits) / sum(gpa_credits), 2)"
+  },
+  "repeat_course_rules": {
+    "kind": "replace_points_credit_once",
+    "description": "Credits are granted only once for a repeated course regardless of the passing grade (calendar text)."
+  },
+  "pass_fail": {
+    "treatment": "exclude_from_gpa",
+    "pass_symbols": ["P"],
+    "fail_symbols": [],
+    "description": "P has no grade-point value and contributes no GPA course credits."
+  },
+  "degree_classification": {
+    "applies": true,
+    "description": "Minimum CGPA 2.00 to be considered for graduation with a McGill degree. Further honours distinctions are faculty-specific and not fully encoded here.",
+    "bands": [
+      { "name": "Eligible for graduation (minimum CGPA)", "min_value": 2.0, "max_value": 4.0, "metric": "gpa" }
+    ],
+    "extra_conditions": ["Faculty-level honours/distinction rules not fully captured."],
+    "provenance": { "status": "partial", "note": "Graduation floor verified; honours classes vary by faculty." }
+  },
+  "official_sources": [
+    {
+      "title": "Grading and Grade Point Averages (GPA) — McGill Undergraduate eCalendar PDF",
+      "url": "https://coursecatalogue.mcgill.ca/en/regulations/undergraduate/student-records/grading-gpa/grading-gpa.pdf",
+      "source_class": "academic_regulations",
+      "retrieved": "2026-09-18"
+    }
+  ],
+  "verification_date": "2026-09-18",
+  "unverified_fields": ["degree_classification.bands.honours"],
+  "notes": ["Example in source: 3.596 displays as 3.59."]
+}
