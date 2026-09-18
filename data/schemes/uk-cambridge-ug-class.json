@@ -1,0 +1,38 @@
+{
+  "scheme_id": "uk-cambridge-ug-class-post2020",
+  "university": {"slug": "cambridge", "name": "University of Cambridge", "country_iso2": "GB", "homepage": "https://www.cam.ac.uk/"},
+  "country": {"iso2": "GB", "name": "United Kingdom"},
+  "faculty_program": {"slug": "tripos-generic", "name": "Tripos overall degree classification", "kind": "university_wide"},
+  "degree_level": "undergraduate",
+  "academic_year": {"start": 2020, "label": "Matriculation from Oct 2020", "open_ended": true},
+  "name": "Cambridge UG overall class (standard percentage bands)",
+  "grade_boundaries": [
+    {"symbol": "I", "min_percent": 70, "max_percent": 100, "passing": true},
+    {"symbol": "II.i", "min_percent": 60, "max_percent": 69.99, "passing": true},
+    {"symbol": "II.ii", "min_percent": 50, "max_percent": 59.99, "passing": true},
+    {"symbol": "III", "min_percent": 40, "max_percent": 49.99, "passing": true},
+    {"symbol": "Fail", "min_percent": 0, "max_percent": 39.99, "passing": false, "counts_toward_credits": false}
+  ],
+  "credit_system": {"unit": "none", "conversion_notes": "Tripos-specific year weightings (0:30:70 or 0:0:100)."},
+  "gpa_formula": {"kind": "wam_percent", "scale_max": 100, "scale_min": 0, "rounding": "none", "decimal_places": 2, "description": "Weighted average across Tripos Parts.", "expression": "tripos_weighted_average"},
+  "repeat_course_rules": {"kind": "unknown", "description": "Varies by Tripos.", "provenance": {"status": "unverified"}},
+  "pass_fail": {"treatment": "exclude_from_gpa", "pass_symbols": [], "fail_symbols": [], "description": "Percentage marks."},
+  "degree_classification": {
+    "applies": true,
+    "description": "Standard Class I / II.i / II.ii / III bands.",
+    "bands": [
+      {"name": "Class I", "min_value": 70, "max_value": 100, "metric": "wam"},
+      {"name": "Class II.i", "min_value": 60, "max_value": 69.99, "metric": "wam"},
+      {"name": "Class II.ii", "min_value": 50, "max_value": 59.99, "metric": "wam"},
+      {"name": "Class III", "min_value": 40, "max_value": 49.99, "metric": "wam"},
+      {"name": "Fail", "min_value": 0, "max_value": 39.99, "metric": "wam"}
+    ],
+    "extra_conditions": ["Year weighting Tripos-specific"],
+    "provenance": {"status": "partial"}
+  },
+  "official_sources": [
+    {"title": "Degree classes | Cambridge Data", "url": "https://www.camdata.admin.cam.ac.uk/degree-classes", "source_class": "degree_classification", "retrieved": "2026-09-18"}
+  ],
+  "verification_date": "2026-09-18",
+  "unverified_fields": ["repeat_course_rules.kind", "gpa_formula.year_weightings"]
+}

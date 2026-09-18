@@ -1,0 +1,30 @@
+{
+  "scheme_id": "ca-ubc-ug-percentage-current",
+  "university": {"slug": "ubc", "name": "University of British Columbia", "country_iso2": "CA", "homepage": "https://www.ubc.ca/"},
+  "country": {"iso2": "CA", "name": "Canada"},
+  "faculty_program": {"slug": "university-wide", "name": "UBC undergraduate", "kind": "university_wide"},
+  "degree_level": "undergraduate",
+  "academic_year": {"start": 2016, "label": "Standing scale", "open_ended": true},
+  "name": "UBC percentage to 4.33 GPA",
+  "grade_boundaries": [
+    {"symbol": "A+", "min_percent": 90, "max_percent": 100, "grade_points": 4.33, "passing": true},
+    {"symbol": "A", "min_percent": 85, "max_percent": 89, "grade_points": 4.0, "passing": true},
+    {"symbol": "A-", "min_percent": 80, "max_percent": 84, "grade_points": 3.67, "passing": true},
+    {"symbol": "B+", "min_percent": 76, "max_percent": 79, "grade_points": 3.33, "passing": true},
+    {"symbol": "B", "min_percent": 72, "max_percent": 75, "grade_points": 3.0, "passing": true},
+    {"symbol": "B-", "min_percent": 68, "max_percent": 71, "grade_points": 2.67, "passing": true},
+    {"symbol": "C+", "min_percent": 64, "max_percent": 67, "grade_points": 2.33, "passing": true},
+    {"symbol": "C", "min_percent": 60, "max_percent": 63, "grade_points": 2.0, "passing": true},
+    {"symbol": "C-", "min_percent": 55, "max_percent": 59, "grade_points": 1.67, "passing": true},
+    {"symbol": "D", "min_percent": 50, "max_percent": 54, "grade_points": 1.0, "passing": true},
+    {"symbol": "F", "min_percent": 0, "max_percent": 49, "grade_points": 0.0, "passing": false, "counts_toward_credits": false}
+  ],
+  "credit_system": {"unit": "semester_hour", "typical_full_time_load_per_year": 30},
+  "gpa_formula": {"kind": "weighted_mean", "scale_max": 4.33, "scale_min": 0.0, "rounding": "none", "decimal_places": 2, "description": "Credit-weighted GPA.", "expression": "sum(gp * credits) / sum(credits)"},
+  "repeat_course_rules": {"kind": "unknown", "description": "Confirm Calendar.", "provenance": {"status": "unverified"}},
+  "pass_fail": {"treatment": "exclude_from_gpa", "pass_symbols": ["P"], "fail_symbols": ["F"], "description": "P/F excluded from GPA."},
+  "degree_classification": {"applies": false, "description": "Faculty-specific distinction."},
+  "official_sources": [{"title": "UBC Academic Calendar — Grading Practices", "url": "https://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,42,96,0", "source_class": "academic_regulations", "retrieved": "2026-09-18"}],
+  "verification_date": "2026-09-18",
+  "unverified_fields": ["repeat_course_rules.kind", "grade_boundaries"]
+}

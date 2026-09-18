@@ -1,0 +1,35 @@
+{
+  "scheme_id": "au-anu-ug-wam-current",
+  "university": {"slug": "anu", "name": "Australian National University", "country_iso2": "AU", "homepage": "https://www.anu.edu.au/"},
+  "country": {"iso2": "AU", "name": "Australia"},
+  "faculty_program": {"slug": "university-wide", "name": "ANU undergraduate WAM", "kind": "university_wide"},
+  "degree_level": "undergraduate",
+  "academic_year": {"start": 2018, "label": "WAM in common use", "open_ended": true},
+  "name": "ANU Weighted Average Mark",
+  "grade_boundaries": [
+    {"symbol": "HD", "min_percent": 80, "max_percent": 100, "passing": true},
+    {"symbol": "D", "min_percent": 70, "max_percent": 79, "passing": true},
+    {"symbol": "C", "min_percent": 60, "max_percent": 69, "passing": true},
+    {"symbol": "P", "min_percent": 50, "max_percent": 59, "passing": true},
+    {"symbol": "N", "min_percent": 0, "max_percent": 49, "passing": false, "counts_toward_credits": false}
+  ],
+  "credit_system": {"unit": "generic_credit", "typical_full_time_load_per_year": 48},
+  "gpa_formula": {"kind": "wam_percent", "scale_max": 100, "scale_min": 0, "rounding": "none", "decimal_places": 2, "description": "Credit-weighted WAM.", "expression": "sum(mark * units) / sum(units)"},
+  "repeat_course_rules": {"kind": "unknown", "description": "Confirm Coursework Awards Rule.", "provenance": {"status": "unverified"}},
+  "pass_fail": {"treatment": "exclude_from_gpa", "pass_symbols": ["CRS"], "fail_symbols": [], "description": "Non-graded passes excluded."},
+  "degree_classification": {
+    "applies": true,
+    "description": "Subject grade bands.",
+    "bands": [
+      {"name": "HD", "min_value": 80, "max_value": 100, "metric": "wam"},
+      {"name": "D", "min_value": 70, "max_value": 79, "metric": "wam"},
+      {"name": "C", "min_value": 60, "max_value": 69, "metric": "wam"},
+      {"name": "P", "min_value": 50, "max_value": 59, "metric": "wam"},
+      {"name": "N", "min_value": 0, "max_value": 49, "metric": "wam"}
+    ],
+    "provenance": {"status": "partial"}
+  },
+  "official_sources": [{"title": "ANU Policy Library", "url": "https://policies.anu.edu.au/", "source_class": "academic_regulations", "retrieved": "2026-09-18"}],
+  "verification_date": "2026-09-18",
+  "unverified_fields": ["repeat_course_rules.kind", "official_sources.primary_procedure_url"]
+}

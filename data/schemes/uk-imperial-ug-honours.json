@@ -1,0 +1,37 @@
+{
+  "scheme_id": "uk-imperial-ug-honours-2024",
+  "university": {"slug": "imperial", "name": "Imperial College London", "country_iso2": "GB", "homepage": "https://www.imperial.ac.uk/"},
+  "country": {"iso2": "GB", "name": "United Kingdom"},
+  "faculty_program": {"slug": "taught-ug", "name": "Undergraduate taught programmes", "kind": "university_wide"},
+  "degree_level": "undergraduate",
+  "academic_year": {"start": 2024, "end": 2025, "label": "2024–25 regulations", "open_ended": false},
+  "name": "Imperial UG Programme Overall Weighted Average & Honours",
+  "grade_boundaries": [
+    {"symbol": "FIRST", "min_percent": 70, "max_percent": 100, "passing": true},
+    {"symbol": "2.1", "min_percent": 60, "max_percent": 69.99, "passing": true},
+    {"symbol": "2.2", "min_percent": 50, "max_percent": 59.99, "passing": true},
+    {"symbol": "THIRD", "min_percent": 40, "max_percent": 49.99, "passing": true},
+    {"symbol": "FAIL", "min_percent": 0, "max_percent": 39.99, "passing": false, "counts_toward_credits": false}
+  ],
+  "credit_system": {"unit": "ects", "typical_full_time_load_per_year": 60},
+  "gpa_formula": {"kind": "wam_percent", "scale_max": 100, "scale_min": 0, "rounding": "none", "decimal_places": 2, "description": "Programme Overall Weighted Average with year weightings.", "expression": "weighted_module_average"},
+  "repeat_course_rules": {"kind": "unknown", "description": "Resit rules in examination regulations.", "provenance": {"status": "unverified"}},
+  "pass_fail": {"treatment": "exclude_from_gpa", "pass_symbols": [], "fail_symbols": [], "description": "Graded module marks."},
+  "degree_classification": {
+    "applies": true,
+    "description": "College bands from 2024–25 regs. Borderline 69.50–69.99 rounds to 70.",
+    "bands": [
+      {"name": "First Class", "min_value": 70, "max_value": 100, "metric": "wam"},
+      {"name": "Upper Second", "min_value": 60, "max_value": 69.99, "metric": "wam"},
+      {"name": "Lower Second", "min_value": 50, "max_value": 59.99, "metric": "wam"},
+      {"name": "Third Class", "min_value": 40, "max_value": 49.99, "metric": "wam"},
+      {"name": "Fail", "min_value": 0, "max_value": 39.99, "metric": "wam"}
+    ],
+    "extra_conditions": ["Year weightings programme-specific", "Borderline rounding 69.50–69.99 → 70.00"]
+  },
+  "official_sources": [
+    {"title": "Regulations for Taught Programmes 2024–25", "url": "https://www.imperial.ac.uk/media/imperial-college/administration-and-support-services/registry/academic-governance/public/regulations/2024-25/Regulations_for_Taught_Programmes_2024_25-v1.1.pdf", "source_class": "academic_regulations", "retrieved": "2026-09-18"}
+  ],
+  "verification_date": "2026-09-18",
+  "unverified_fields": ["repeat_course_rules.kind"]
+}

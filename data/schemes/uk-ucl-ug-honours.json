@@ -1,0 +1,37 @@
+{
+  "scheme_id": "uk-ucl-ug-honours-scheme-a",
+  "university": {"slug": "ucl", "name": "University College London", "country_iso2": "GB", "homepage": "https://www.ucl.ac.uk/"},
+  "country": {"iso2": "GB", "name": "United Kingdom"},
+  "faculty_program": {"slug": "scheme-a", "name": "Honours Classification Scheme A", "kind": "university_wide"},
+  "degree_level": "undergraduate",
+  "academic_year": {"start": 2018, "label": "Academic Manual Scheme A", "open_ended": true},
+  "name": "UCL UG Honours Scheme A",
+  "grade_boundaries": [
+    {"symbol": "FIRST", "min_percent": 70, "max_percent": 100, "passing": true},
+    {"symbol": "2.1", "min_percent": 60, "max_percent": 69.99, "passing": true},
+    {"symbol": "2.2", "min_percent": 50, "max_percent": 59.99, "passing": true},
+    {"symbol": "THIRD", "min_percent": 40, "max_percent": 49.99, "passing": true},
+    {"symbol": "FAIL", "min_percent": 0, "max_percent": 39.99, "passing": false, "counts_toward_credits": false}
+  ],
+  "credit_system": {"unit": "ects", "typical_full_time_load_per_year": 120},
+  "gpa_formula": {"kind": "wam_percent", "scale_max": 100, "scale_min": 0, "rounding": "none", "decimal_places": 2, "description": "Final Weighted Mark Scheme A.", "expression": "final_weighted_mark"},
+  "repeat_course_rules": {"kind": "unknown", "description": "Condonement in Academic Manual.", "provenance": {"status": "unverified"}},
+  "pass_fail": {"treatment": "exclude_from_gpa", "pass_symbols": [], "fail_symbols": [], "description": "Module marks."},
+  "degree_classification": {
+    "applies": true,
+    "description": "Scheme A: 69.50 automatic First; borderline 68.50 with final-year criteria.",
+    "bands": [
+      {"name": "First Class Honours", "min_value": 69.5, "max_value": 100, "metric": "wam"},
+      {"name": "Upper Second (2.1)", "min_value": 59.5, "max_value": 69.49, "metric": "wam"},
+      {"name": "Lower Second (2.2)", "min_value": 49.5, "max_value": 59.49, "metric": "wam"},
+      {"name": "Third Class", "min_value": 40.0, "max_value": 49.49, "metric": "wam"},
+      {"name": "Fail", "min_value": 0, "max_value": 39.99, "metric": "wam"}
+    ],
+    "extra_conditions": ["Year weights 1:3:5", "Borderline First rules"]
+  },
+  "official_sources": [
+    {"title": "UCL Academic Manual Ch.4 Classification", "url": "https://www.ucl.ac.uk/study/current-students/academic-manual/chapters/chapter-4-assessment-framework-taught-programmes/section-4-classification", "source_class": "academic_regulations", "retrieved": "2026-09-18"}
+  ],
+  "verification_date": "2026-09-18",
+  "unverified_fields": ["repeat_course_rules.kind"]
+}
