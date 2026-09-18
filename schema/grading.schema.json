@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/g-nex/global-academic-grading-db/schema/grading.schema.json",
+  "title": "GradingScheme",
+  "type": "object",
+  "required": [
+    "scheme_id",
+    "university",
+    "country",
+    "faculty_program",
+    "degree_level",
+    "academic_year",
+    "name",
+    "grade_boundaries",
+    "credit_system",
+    "gpa_formula",
+    "repeat_course_rules",
+    "pass_fail",
+    "degree_classification",
+    "official_sources",
+    "verification_date"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "scheme_id": { "type": "string" },
+    "university": {
+      "type": "object",
+      "required": ["slug", "name", "country_iso2"],
+      "properties": {
+        "slug": { "type": "string" },
+        "name": { "type": "string" },
+        "country_iso2": { "type": "string", "minLength": 2, "maxLength": 2 },
+        "homepage": { "type": ["string", "null"] }
+      }
+    },
+    "country": {
+      "type": "object",
+      "required": ["iso2", "name"],
+      "properties": {
+        "iso2": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "faculty_program": {
+      "type": "object",
+      "required": ["slug", "name"],
+      "properties": {
+        "slug": { "type": "string" },
+        "name": { "type": "string" },
+        "kind": { "type": "string" }
+      }
+    },
+    "degree_level": { "type": "string" },
+    "academic_year": {
+      "type": "object",
+      "required": ["start", "label"],
+      "properties": {
+        "start": { "type": "integer" },
+        "end": { "type": ["integer", "null"] },
+        "label": { "type": "string" },
+        "open_ended": { "type": "boolean" }
+      }
+    },
+    "name": { "type": "string" },
+    "grade_boundaries": { "type": "array", "minItems": 1 },
+    "credit_system": { "type": "object" },
+    "gpa_formula": { "type": "object" },
+    "repeat_course_rules": { "type": "object" },
+    "pass_fail": { "type": "object" },
+    "degree_classification": { "type": "object" },
+    "official_sources": { "type": "array", "minItems": 1 },
+    "verification_date": { "type": "string" },
+    "unverified_fields": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "array", "items": { "type": "string" } }
+  }
+}
