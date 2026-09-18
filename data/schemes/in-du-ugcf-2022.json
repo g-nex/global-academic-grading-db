@@ -1,0 +1,67 @@
+{
+  "scheme_id": "in-delhi-ugcf-2022",
+  "university": {
+    "slug": "university-of-delhi",
+    "name": "University of Delhi",
+    "country_iso2": "IN",
+    "homepage": "https://www.du.ac.in"
+  },
+  "country": { "iso2": "IN", "name": "India" },
+  "faculty_program": { "slug": "ugcf-2022", "name": "Undergraduate Curriculum Framework 2022 (NEP)", "kind": "program" },
+  "degree_level": "undergraduate",
+  "academic_year": { "start": 2022, "end": null, "label": "UGCF 2022 / NEP batches admitted 2022-23 onwards", "open_ended": true },
+  "name": "Delhi University UGCF letter grades and CGPA",
+  "grade_boundaries": [
+    { "symbol": "O", "label": "Outstanding", "grade_points": 10.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "A+", "label": "Excellent", "grade_points": 9.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "A", "label": "Very good", "grade_points": 8.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B+", "label": "Good", "grade_points": 7.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B", "label": "Above average", "grade_points": 6.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "C", "label": "Average", "grade_points": 5.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "P", "label": "Pass", "grade_points": 4.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "F", "label": "Fail", "grade_points": 0.0, "passing": false, "counts_toward_gpa": true, "counts_toward_credits": false },
+    { "symbol": "AB", "label": "Absent", "grade_points": 0.0, "passing": false, "counts_toward_gpa": true, "counts_toward_credits": false }
+  ],
+  "credit_system": { "unit": "generic_credit", "typical_full_time_load_per_year": 44, "conversion_notes": "UGCF course credit patterns (4/2) are in Ordinance VIII addition tables." },
+  "gpa_formula": {
+    "kind": "weighted_mean",
+    "scale_max": 10.0,
+    "scale_min": 0.0,
+    "rounding": "none",
+    "decimal_places": 2,
+    "description": "Standard credit-weighted CGPA. Final percentage for students graduating from 2022-23 = Grand CGPA × 10 (Ordinance VIII addition, clause 10).",
+    "expression": "sum(gp * credits) / sum(credits)",
+    "extras": { "percent_from_cgpa": "cgpa * 10" }
+  },
+  "repeat_course_rules": {
+    "kind": "last_attempt_only",
+    "description": "Ordinance VIII addition describes essential repeat / improvement pathways; the recorded grade after the allowed reappearance replaces the prior attempt for that component. Encoded as last-attempt pending fuller workflow modelling.",
+    "provenance": { "status": "partial" }
+  },
+  "pass_fail": {
+    "treatment": "include_both",
+    "pass_symbols": ["P"],
+    "fail_symbols": ["F", "AB"],
+    "description": "P is a letter grade with 4 points, not a GPA-excluded pass/fail option."
+  },
+  "degree_classification": {
+    "applies": true,
+    "description": "UGCF document defines letter/point table. Division names for NEP batches are not restated in the 10 Feb 2023 notification; CBCS divisions must not be assumed.",
+    "bands": [],
+    "provenance": { "status": "unverified", "note": "Do not apply CBCS First/Second/Third Division cut-offs to UGCF without a UGCF-specific ordinance." }
+  },
+  "official_sources": [
+    {
+      "title": "University of Delhi — Addition to Ordinance VIII (UGCF 2022 assessment), 10 February 2023",
+      "url": "https://igipess.du.ac.in/pdf/Notification_-_Amendment_to_Ordinances_VIII_passed_by_Executive_Council.pdf",
+      "source_class": "academic_regulations",
+      "retrieved": "2026-09-18"
+    }
+  ],
+  "verification_date": "2026-09-18",
+  "unverified_fields": ["degree_classification.bands"],
+  "notes": [
+    "CBCS batches used CGPA × 9.5 for percentage — that is a separate scheme (in-delhi-cbcs), not this record.",
+    "UGCF Table-1 letter grades as published in the framework: O=10 … P=4, F=0, Ab=0."
+  ]
+}

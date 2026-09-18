@@ -1,0 +1,85 @@
+{
+  "scheme_id": "au-unimelb-ug-wam-current",
+  "university": {
+    "slug": "university-of-melbourne",
+    "name": "The University of Melbourne",
+    "country_iso2": "AU",
+    "homepage": "https://www.unimelb.edu.au"
+  },
+  "country": { "iso2": "AU", "name": "Australia" },
+  "faculty_program": { "slug": "award-courses", "name": "Award courses using WAM (Assessment and Results Policy MPF1326)", "kind": "university_wide" },
+  "degree_level": "all",
+  "academic_year": { "start": 2022, "end": null, "label": "MPF1326 current table; COVID WAM carve-outs are historical", "open_ended": true },
+  "name": "Melbourne subject results + Weighted Average Mark",
+  "grade_boundaries": [
+    { "symbol": "H1", "label": "First Class Honours", "min_percent": 80, "max_percent": 100, "grade_points": null, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "H2A", "label": "Second Class Honours Division A", "min_percent": 75, "max_percent": 79, "grade_points": null, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "H2B", "label": "Second Class Honours Division B", "min_percent": 70, "max_percent": 74, "grade_points": null, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "H3", "label": "Third Class Honours", "min_percent": 65, "max_percent": 69, "grade_points": null, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "P", "label": "Pass", "min_percent": 50, "max_percent": 64, "grade_points": null, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "N", "label": "Fail", "min_percent": 0, "max_percent": 49, "grade_points": null, "passing": false, "counts_toward_gpa": true, "counts_toward_credits": false },
+    { "symbol": "NH", "label": "Fail – hurdle not met", "min_percent": 49, "max_percent": 49, "grade_points": null, "passing": false, "counts_toward_gpa": true, "counts_toward_credits": false },
+    { "symbol": "CMP", "label": "Pass (no mark)", "grade_points": null, "passing": true, "counts_toward_gpa": false, "counts_toward_credits": true },
+    { "symbol": "FL", "label": "Fail (no mark)", "grade_points": null, "passing": false, "counts_toward_gpa": false, "counts_toward_credits": false }
+  ],
+  "credit_system": {
+    "unit": "melbourne_credit_point",
+    "typical_full_time_load_per_year": 100,
+    "conversion_notes": "Most undergraduate subjects are 12.5 credit points."
+  },
+  "gpa_formula": {
+    "kind": "wam_percent",
+    "scale_max": 100,
+    "scale_min": 0,
+    "rounding": "none",
+    "decimal_places": 2,
+    "description": "WAM = sum(mark × credit points) / sum(credit points) over subjects with a percent mark, including fails. Pass/fail-only grades excluded.",
+    "expression": "sum(mark * credit_points) / sum(credit_points_with_mark)"
+  },
+  "repeat_course_rules": {
+    "kind": "unknown",
+    "description": "Repeat replacement is not specified in the WAM clauses cited; flagged.",
+    "provenance": { "status": "unverified" }
+  },
+  "pass_fail": {
+    "treatment": "exclude_from_gpa",
+    "pass_symbols": ["CMP"],
+    "fail_symbols": ["FL"],
+    "description": "Pass/fail or completion-only grades are excluded from WAM (policy 5.18)."
+  },
+  "degree_classification": {
+    "applies": true,
+    "description": "Subject-level honours codes H1–H3 are on the result table. Award-level honours from WAM is course-specific.",
+    "bands": [
+      { "name": "H1", "min_value": 80, "max_value": 100, "metric": "wam" },
+      { "name": "H2A", "min_value": 75, "max_value": 79, "metric": "wam" },
+      { "name": "H2B", "min_value": 70, "max_value": 74, "metric": "wam" },
+      { "name": "H3", "min_value": 65, "max_value": 69, "metric": "wam" },
+      { "name": "Pass", "min_value": 50, "max_value": 64, "metric": "wam" },
+      { "name": "Fail", "min_value": 0, "max_value": 49, "metric": "wam" }
+    ],
+    "extra_conditions": ["Using subject-result bands as a default mapping; individual courses may class the award differently."]
+  },
+  "official_sources": [
+    {
+      "title": "Assessment and Results Policy (MPF1326) — University of Melbourne",
+      "url": "https://policy.unimelb.edu.au/MPF1326",
+      "source_class": "academic_regulations",
+      "retrieved": "2026-09-18"
+    },
+    {
+      "title": "Weighted Average Mark (WAM) — current students",
+      "url": "https://students.unimelb.edu.au/course-admin/wam",
+      "source_class": "registrar",
+      "retrieved": "2026-09-18"
+    },
+    {
+      "title": "Results grade codes — University of Melbourne",
+      "url": "https://students.unimelb.edu.au/your-course/manage-your-course/exams-assessments-and-results/results-and-academic-statements/results",
+      "source_class": "transcript_legend",
+      "retrieved": "2026-09-18"
+    }
+  ],
+  "verification_date": "2026-09-18",
+  "unverified_fields": ["repeat_course_rules.kind"]
+}

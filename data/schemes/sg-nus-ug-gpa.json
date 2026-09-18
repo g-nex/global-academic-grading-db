@@ -1,0 +1,80 @@
+{
+  "scheme_id": "sg-nus-ug-gpa-2021-present",
+  "university": {
+    "slug": "nus",
+    "name": "National University of Singapore",
+    "country_iso2": "SG",
+    "homepage": "https://www.nus.edu.sg"
+  },
+  "country": { "iso2": "SG", "name": "Singapore" },
+  "faculty_program": { "slug": "modular-system", "name": "Modular System (undergraduate and most graduate coursework)", "kind": "university_wide" },
+  "degree_level": "undergraduate",
+  "academic_year": { "start": 2021, "end": null, "label": "AY2021/2022 to present grade points; GPA terminology from 1 Aug 2023", "open_ended": true },
+  "name": "NUS 5-point GPA (formerly CAP)",
+  "grade_boundaries": [
+    { "symbol": "A+", "grade_points": 5.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "A", "grade_points": 5.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "A-", "grade_points": 4.5, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B+", "grade_points": 4.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B", "grade_points": 3.5, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "B-", "grade_points": 3.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "C+", "grade_points": 2.5, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "C", "grade_points": 2.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "D+", "grade_points": 1.5, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "D", "grade_points": 1.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "F", "grade_points": 0.0, "passing": false, "counts_toward_gpa": true, "counts_toward_credits": false },
+    { "symbol": "S", "label": "Satisfactory", "grade_points": null, "passing": true, "counts_toward_gpa": false, "counts_toward_credits": true },
+    { "symbol": "U", "label": "Unsatisfactory", "grade_points": null, "passing": false, "counts_toward_gpa": false, "counts_toward_credits": false }
+  ],
+  "credit_system": {
+    "unit": "nus_unit",
+    "typical_full_time_load_per_year": 40,
+    "conversion_notes": "Unit (formerly Modular Credit). Typical 4-unit course."
+  },
+  "gpa_formula": {
+    "kind": "weighted_mean",
+    "scale_max": 5.0,
+    "scale_min": 0.0,
+    "rounding": "none",
+    "decimal_places": 2,
+    "description": "GPA (formerly CAP) = sum(course grade point × units) / sum(units) over courses with assigned units and grade points.",
+    "expression": "sum(gp * units) / sum(units_with_gp)"
+  },
+  "repeat_course_rules": {
+    "kind": "unknown",
+    "description": "Repeat / grade-free-scheme details are in separate NUS policies and are not on the transcript grade-legend table used here.",
+    "provenance": { "status": "unverified" }
+  },
+  "pass_fail": {
+    "treatment": "exclude_from_gpa",
+    "pass_symbols": ["S", "CS"],
+    "fail_symbols": ["U", "CU"],
+    "description": "S/U and CS/CU carry no grade points and are excluded from GPA."
+  },
+  "degree_classification": {
+    "applies": true,
+    "description": "Honours classification cut-offs have changed across admission cohorts. Cohort-specific CAP/GPA bands are not fully restated on the 2023 terminology page; flagged.",
+    "bands": [],
+    "provenance": { "status": "unverified", "note": "Need cohort-specific degree classification circular." }
+  },
+  "official_sources": [
+    {
+      "title": "NUS Transcript Information / Grade Legend (PDF)",
+      "url": "https://www.nus.edu.sg/registrar/docs/info/administrative-policies-procedures/transcript-information-grade-legend.pdf",
+      "source_class": "transcript_legend",
+      "retrieved": "2026-09-18"
+    },
+    {
+      "title": "Academic Structure & Grading — NUS Registrar (graduate page stating modular 5-point system)",
+      "url": "https://nus.edu.sg/registrar/academic-information-policies/graduate/academic-structure-grading",
+      "source_class": "registrar",
+      "retrieved": "2026-09-18"
+    }
+  ],
+  "verification_date": "2026-09-18",
+  "unverified_fields": ["repeat_course_rules.kind", "degree_classification.bands"],
+  "notes": [
+    "From 1 August 2023 NUS renamed CAP → GPA, MC → Unit, Module → Course.",
+    "NUS Business School master's DT/M/Pass/Fail table is a separate scheme."
+  ]
+}

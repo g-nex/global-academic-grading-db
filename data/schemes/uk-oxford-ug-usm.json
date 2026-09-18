@@ -1,0 +1,77 @@
+{
+  "scheme_id": "uk-oxford-ug-usm-honour-school",
+  "university": {
+    "slug": "university-of-oxford",
+    "name": "University of Oxford",
+    "country_iso2": "GB",
+    "homepage": "https://www.ox.ac.uk"
+  },
+  "country": { "iso2": "GB", "name": "United Kingdom" },
+  "faculty_program": { "slug": "honour-schools", "name": "Undergraduate Honour Schools / Second Public Examination", "kind": "university_wide" },
+  "degree_level": "undergraduate",
+  "academic_year": { "start": 2025, "end": 2026, "label": "EAF class boundaries October 2025", "open_ended": true },
+  "name": "Oxford University Standardised Marks (USM) — Honour School class boundaries",
+  "grade_boundaries": [
+    { "symbol": "FIRST", "label": "First Class", "min_percent": 70, "max_percent": 100, "grade_points": null, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "2.1", "label": "Upper Second", "min_percent": 60, "max_percent": 69, "grade_points": null, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "2.2", "label": "Lower Second", "min_percent": 50, "max_percent": 59, "grade_points": null, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "THIRD", "label": "Third", "min_percent": 40, "max_percent": 49, "grade_points": null, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "PASS", "label": "Pass in Finals/Honour Mods", "min_percent": 30, "max_percent": 39, "grade_points": null, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true },
+    { "symbol": "FAIL", "label": "Fail", "min_percent": 0, "max_percent": 29, "grade_points": null, "passing": false, "counts_toward_gpa": true, "counts_toward_credits": false }
+  ],
+  "credit_system": {
+    "unit": "none",
+    "typical_full_time_load_per_year": null,
+    "conversion_notes": "Classification uses averaged University Standardised Marks, not a credit-weighted GPA.",
+    "provenance": { "status": "partial", "note": "Paper weights are course-specific in examination conventions." }
+  },
+  "gpa_formula": {
+    "kind": "wam_percent",
+    "scale_max": 100,
+    "scale_min": 0,
+    "rounding": "symmetric_nearest",
+    "decimal_places": 0,
+    "description": "Agreed final marks are whole-number USMs 0–100. Course conventions average paper USMs; some conventions then symmetrically round the average to the nearest integer before classing.",
+    "expression": "symmetric_round(average(USM_i))"
+  },
+  "repeat_course_rules": {
+    "kind": "unknown",
+    "description": "Resit rights are course-specific (see individual examination conventions). Not encoded as a single university rule.",
+    "provenance": { "status": "unverified" }
+  },
+  "pass_fail": {
+    "treatment": "exclude_from_gpa",
+    "pass_symbols": [],
+    "fail_symbols": [],
+    "description": "Honour Schools use numeric USMs, not P/F, except where a paper is separately unclassed."
+  },
+  "degree_classification": {
+    "applies": true,
+    "description": "Second Public Examination / Honour Moderations class boundaries from Education Committee EAF (October 2025).",
+    "bands": [
+      { "name": "First Class", "min_value": 70, "max_value": 100, "metric": "usm" },
+      { "name": "Upper Second", "min_value": 60, "max_value": 69, "metric": "usm" },
+      { "name": "Lower Second", "min_value": 50, "max_value": 59, "metric": "usm" },
+      { "name": "Third", "min_value": 40, "max_value": 49, "metric": "usm" },
+      { "name": "Pass", "min_value": 30, "max_value": 39, "metric": "usm" },
+      { "name": "Fail", "min_value": 0, "max_value": 29, "metric": "usm" }
+    ],
+    "extra_conditions": [
+      "Individual honour schools may raise a class above the average via strong-paper rules. Those extras are program-level schemes, not this university-wide boundary table."
+    ]
+  },
+  "official_sources": [
+    {
+      "title": "Examinations and Assessment Framework (EAF) October 2025 — University of Oxford",
+      "url": "https://governance.admin.ox.ac.uk/sitefiles/eaf-october-2025.pdf",
+      "source_class": "examination_regulations",
+      "retrieved": "2026-09-18"
+    }
+  ],
+  "verification_date": "2026-09-18",
+  "unverified_fields": ["repeat_course_rules.kind", "credit_system.typical_full_time_load_per_year"],
+  "notes": [
+    "Prelims/Moderations use Distinction/Pass/Fail bands (70 / 40) — store as a separate scheme if needed.",
+    "Part C / PGT papers on some integrated masters use a Distinction/Merit/Pass scale."
+  ]
+}
