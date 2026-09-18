@@ -1,0 +1,5 @@
+[
+  { "code": "HIST 7A", "credits": 4, "grade": "A" },
+  { "code": "MATH 1A", "credits": 4, "grade": "B+" },
+  { "code": "PE 1", "credits": 0.5, "grade": "P" }
+]
