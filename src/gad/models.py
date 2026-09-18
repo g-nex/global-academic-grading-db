@@ -1,7 +1,11 @@
 """Pydantic schema for the grading hierarchy.
 
-Logical path:
+Logical path (as specified):
   University → Country → Faculty/Program → Degree Level → Academic Year → Grading Scheme
+
+Physical model stores Country as a first-class entity and University.country_iso2
+as a foreign key so the graph is relationally normal and migrates cleanly to
+Postgres. The logical path is reconstructed by Catalog.resolve().
 """
 
 from __future__ import annotations
@@ -115,9 +119,21 @@ class GPAFormula(BaseModel):
 
 
 class RepeatCourseRules(BaseModel):
+    """How repeated course attempts enter the GPA calculation.
+
+    - include_all_attempts: every attempt contributes points and credits.
+    - last_attempt_only: only the highest attempt number is kept.
+    - best_attempt_only: highest grade points, then percent, then later attempt.
+      Institutional side conditions are not modelled.
+    - replace_points_credit_once: one credit-bearing result retained;
+      replace_with is last (default) or best. Not an average of attempts.
+    - unknown: all attempts included; engine emits a warning.
+    """
+
     kind: RepeatPolicyKind
     description: str
     max_attempts: int | None = None
+    replace_with: Literal["last", "best"] = "last"
     provenance: FieldProvenance = Field(default_factory=FieldProvenance)
 
 
@@ -130,11 +146,22 @@ class PassFailRules(BaseModel):
 
 
 class ClassificationBand(BaseModel):
+    """One award class interval. Prefer non-overlapping ranges in seed data.
+    On overlap, engine sorts by min_value descending so the higher class wins.
+    """
+
     name: str
     min_value: float
     max_value: float
     metric: Literal["gpa", "percent", "wam", "usm", "cgpa", "other"] = "gpa"
+    min_inclusive: bool = True
+    max_inclusive: bool = True
     notes: str | None = None
+
+    def contains(self, value: float) -> bool:
+        lo_ok = value >= self.min_value if self.min_inclusive else value > self.min_value
+        hi_ok = value <= self.max_value if self.max_inclusive else value < self.max_value
+        return lo_ok and hi_ok
 
 
 class DegreeClassificationRules(BaseModel):
@@ -222,6 +249,8 @@ class GradingScheme(BaseModel):
         hits = [
             g
             for g in self.grade_boundaries
-            if g.min_percent is not None and g.max_percent is not None and g.min_percent <= percent <= g.max_percent
+            if g.min_percent is not None
+            and g.max_percent is not None
+            and g.min_percent <= percent <= g.max_percent
         ]
         return hits[0] if hits else None
