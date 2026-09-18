@@ -40,9 +40,21 @@ pytest
 
 ## Seed coverage (verification date 2026-09-18)
 
-UC Berkeley, MIT, UNC–Chapel Hill, McGill, University of Toronto, Oxford, NUS, University of Melbourne, University of Delhi (UGCF 2022).
+**9 schemes committed under `data/schemes/`:**
 
-Starter spine, not a world census. Add one official JSON file per distinct scheme.
+| File | scheme_id | Institution | Country | Metric |
+|---|---|---|---|---|
+| `us-berkeley-ug-letter.json` | `us-berkeley-ug-letter-current` | UC Berkeley | US | 4.0 GPA |
+| `us-mit-ug-5pt.json` | `us-mit-ug-5pt-current` | MIT | US | 5.0 GPA |
+| `us-unc-ug.json` | `us-unc-chapel-hill-ug` | UNC–Chapel Hill | US | 4.0 GPA |
+| `ca-mcgill-ug.json` | `ca-mcgill-ug-current` | McGill | CA | 4.0 GPA (truncate 2 d.p.) |
+| `ca-toronto-ug.json` | `ca-toronto-ug-refined-letter` | University of Toronto | CA | 4.0 GPA + % bands |
+| `uk-oxford-ug-usm.json` | `uk-oxford-ug-usm-honour-school` | University of Oxford | GB | USM / honours class |
+| `sg-nus-ug-gpa.json` | `sg-nus-ug-gpa-2021-present` | NUS | SG | 5.0 GPA (ex-CAP) |
+| `au-unimelb-wam.json` | `au-unimelb-ug-wam-current` | University of Melbourne | AU | WAM |
+| `in-du-ugcf-2022.json` | `in-delhi-ugcf-2022` | University of Delhi (UGCF 2022) | IN | 10-point CGPA |
+
+Starter spine, not a world census. Add one official JSON file per distinct scheme; do not collapse faculty- or year-specific variants.
 
 ## Licence
 
