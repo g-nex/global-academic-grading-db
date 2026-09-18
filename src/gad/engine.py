@@ -118,44 +118,81 @@ class GPAEngine:
             warnings=warnings,
         )
 
-    def _apply_repeats(self, scheme: GradingScheme, courses: list[TranscriptCourse], warnings: list[str]) -> list[TranscriptCourse]:
+    def _attempt_score(self, scheme: GradingScheme, course: TranscriptCourse) -> tuple[float, float, int]:
+        boundary = scheme.lookup_grade(course.grade or "") if course.grade else None
+        if boundary is None and course.percent is not None:
+            boundary = scheme.grade_from_percent(course.percent)
+        gp = boundary.grade_points if boundary and boundary.grade_points is not None else float("-inf")
+        pct = course.percent if course.percent is not None else float("-inf")
+        return (gp, pct, course.attempt)
+
+    def _apply_repeats(
+        self,
+        scheme: GradingScheme,
+        courses: list[TranscriptCourse],
+        warnings: list[str],
+    ) -> list[TranscriptCourse]:
         kind = scheme.repeat_course_rules.kind
         if kind in (RepeatPolicyKind.INCLUDE_ALL_ATTEMPTS, RepeatPolicyKind.UNKNOWN):
             return list(courses)
+
         by_code: dict[str, list[TranscriptCourse]] = {}
         for c in courses:
             by_code.setdefault(c.code, []).append(c)
+
         out: list[TranscriptCourse] = []
-        for code, attempts in by_code.items():
+        for _code, attempts in by_code.items():
             attempts_sorted = sorted(attempts, key=lambda x: x.attempt)
             if kind == RepeatPolicyKind.LAST_ATTEMPT_ONLY:
                 out.append(attempts_sorted[-1])
             elif kind == RepeatPolicyKind.BEST_ATTEMPT_ONLY:
-                def score(c: TranscriptCourse) -> float:
-                    b = scheme.lookup_grade(c.grade or "")
-                    if b and b.grade_points is not None:
-                        return b.grade_points
-                    return c.percent or -1.0
-                out.append(max(attempts_sorted, key=score))
+                chosen = max(attempts_sorted, key=lambda c: self._attempt_score(scheme, c))
+                out.append(chosen)
             elif kind == RepeatPolicyKind.REPLACE_POINTS_CREDIT_ONCE:
-                out.append(attempts_sorted[-1])
+                # One credit-bearing result. replace_with=last (default) or best.
+                # Prior attempts are dropped from the GPA sum — not averaged.
+                strategy = scheme.repeat_course_rules.replace_with
+                if strategy == "best":
+                    out.append(max(attempts_sorted, key=lambda c: self._attempt_score(scheme, c)))
+                else:
+                    out.append(attempts_sorted[-1])
             else:
                 out.extend(attempts_sorted)
         return out
 
-    def _resolve_course(self, scheme: GradingScheme, course: TranscriptCourse, warnings: list[str]) -> CourseResult:
+    def _resolve_course(
+        self,
+        scheme: GradingScheme,
+        course: TranscriptCourse,
+        warnings: list[str],
+    ) -> CourseResult:
         symbol = course.grade
         boundary = scheme.lookup_grade(symbol) if symbol else None
         if boundary is None and course.percent is not None:
             boundary = scheme.grade_from_percent(course.percent)
             if boundary:
                 symbol = boundary.symbol
+
         if boundary is None:
-            warnings.append(f"{course.code}: grade {course.grade!r} / percent {course.percent!r} not in scheme")
-            return CourseResult(code=course.code, credits=course.credits, symbol=symbol, grade_points=None, included_in_gpa=False, included_in_credits=False, reason="unrecognized_grade")
-        pf = course.pass_fail or (symbol or "").upper() in {s.upper() for s in scheme.pass_fail.pass_symbols + scheme.pass_fail.fail_symbols}
+            warnings.append(
+                f"{course.code}: grade {course.grade!r} / percent {course.percent!r} not in scheme"
+            )
+            return CourseResult(
+                code=course.code,
+                credits=course.credits,
+                symbol=symbol,
+                grade_points=None,
+                included_in_gpa=False,
+                included_in_credits=False,
+                reason="unrecognized_grade",
+            )
+
+        pf = course.pass_fail or symbol.upper() in {
+            s.upper() for s in scheme.pass_fail.pass_symbols + scheme.pass_fail.fail_symbols
+        }
         included_gpa = boundary.counts_toward_gpa
         included_credits = boundary.counts_toward_credits
+
         if pf:
             treat = scheme.pass_fail.treatment
             if treat == PassFailTreatment.EXCLUDE_FROM_GPA:
@@ -164,9 +201,19 @@ class GPAEngine:
                 included_gpa = not boundary.passing
             elif treat == PassFailTreatment.INCLUDE_BOTH:
                 included_gpa = True
+
         if scheme.gpa_formula.kind == GPAFormulaKind.WAM_PERCENT:
             included_gpa = course.percent is not None and not course.pass_fail
-        return CourseResult(code=course.code, credits=course.credits, symbol=boundary.symbol, grade_points=boundary.grade_points, included_in_gpa=included_gpa, included_in_credits=included_credits and boundary.passing, reason="ok" if boundary.passing else "fail")
+
+        return CourseResult(
+            code=course.code,
+            credits=course.credits,
+            symbol=boundary.symbol,
+            grade_points=boundary.grade_points,
+            included_in_gpa=included_gpa,
+            included_in_credits=included_credits and boundary.passing,
+            reason="ok" if boundary.passing else "fail",
+        )
 
     def _round(self, value: float, mode: RoundingMode, places: int) -> float:
         q = Decimal("1").scaleb(-places)
@@ -185,7 +232,9 @@ class GPAEngine:
         rules = scheme.degree_classification
         if not rules.applies or not rules.bands:
             return None
-        for band in rules.bands:
-            if band.min_value <= value <= band.max_value:
+        # Higher min_value first so overlapping shared boundaries prefer the higher class.
+        ordered = sorted(rules.bands, key=lambda b: b.min_value, reverse=True)
+        for band in ordered:
+            if band.contains(value):
                 return band.name
         return None
