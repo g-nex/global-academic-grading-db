@@ -1,0 +1,27 @@
+{
+  "scheme_id": "us-mit-ug-5pt-current",
+  "university": {"slug": "mit", "name": "Massachusetts Institute of Technology", "country_iso2": "US", "homepage": "https://web.mit.edu"},
+  "country": {"iso2": "US", "name": "United States"},
+  "faculty_program": {"slug": "institute-wide", "name": "Institute-wide (post first-year letter grades)", "kind": "university_wide"},
+  "degree_level": "undergraduate",
+  "academic_year": {"start": 1970, "end": null, "label": "Post-1970 official 5.0 GPA", "open_ended": true},
+  "name": "MIT undergraduate GPA on a 5.0 scale",
+  "grade_boundaries": [
+    {"symbol": "A", "grade_points": 5.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true},
+    {"symbol": "B", "grade_points": 4.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true},
+    {"symbol": "C", "grade_points": 3.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true},
+    {"symbol": "D", "grade_points": 2.0, "passing": true, "counts_toward_gpa": true, "counts_toward_credits": true},
+    {"symbol": "F", "grade_points": 0.0, "passing": false, "counts_toward_gpa": true, "counts_toward_credits": false},
+    {"symbol": "O", "label": "Absent", "grade_points": 0.0, "passing": false, "counts_toward_gpa": true, "counts_toward_credits": false},
+    {"symbol": "P", "label": "Pass", "grade_points": null, "passing": true, "counts_toward_gpa": false, "counts_toward_credits": true}
+  ],
+  "credit_system": {"unit": "mit_unit", "typical_full_time_load_per_year": 96, "conversion_notes": "Three MIT units equal one semester hour."},
+  "gpa_formula": {"kind": "weighted_mean", "scale_max": 5.0, "scale_min": 0.0, "rounding": "half_up", "decimal_places": 1, "description": "A=5 B=4 C=3 D=2 F=0 O=0; round to 1 decimal.", "expression": "round_half_up(sum(gp * units) / sum(units), 1)"},
+  "repeat_course_rules": {"kind": "include_all_attempts", "description": "A repeated subject counts in GPA each time it is taken (MIT Registrar)."},
+  "pass_fail": {"treatment": "exclude_from_gpa", "pass_symbols": ["P"], "fail_symbols": [], "description": "P excluded from GPA."},
+  "degree_classification": {"applies": false, "description": "No UK-style honours classes on the registrar GPA page."},
+  "official_sources": [{"title": "Calculating GPA — MIT Registrar", "url": "https://registrar.mit.edu/classes-grades-evaluations/grades/calculating-gpa", "source_class": "registrar", "retrieved": "2026-09-18"}],
+  "verification_date": "2026-09-18",
+  "unverified_fields": [],
+  "notes": ["Plus/minus modifiers are internal only."]
+}
