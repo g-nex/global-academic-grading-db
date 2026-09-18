@@ -1,0 +1,39 @@
+{
+  "scheme_id": "us-harvard-fas-ug-4pt-current",
+  "university": {"slug": "harvard", "name": "Harvard University", "country_iso2": "US", "homepage": "https://www.harvard.edu/"},
+  "country": {"iso2": "US", "name": "United States"},
+  "faculty_program": {"slug": "fas", "name": "Faculty of Arts and Sciences (Harvard College)", "kind": "faculty"},
+  "degree_level": "undergraduate",
+  "academic_year": {"start": 2000, "label": "FAS 4-point scale (current)", "open_ended": true},
+  "name": "Harvard FAS undergraduate GPA",
+  "grade_boundaries": [
+    {"symbol": "A", "grade_points": 4.0, "passing": true},
+    {"symbol": "A-", "grade_points": 3.67, "passing": true},
+    {"symbol": "B+", "grade_points": 3.33, "passing": true},
+    {"symbol": "B", "grade_points": 3.0, "passing": true},
+    {"symbol": "B-", "grade_points": 2.67, "passing": true},
+    {"symbol": "C+", "grade_points": 2.33, "passing": true},
+    {"symbol": "C", "grade_points": 2.0, "passing": true},
+    {"symbol": "C-", "grade_points": 1.67, "passing": true},
+    {"symbol": "D+", "grade_points": 1.33, "passing": true},
+    {"symbol": "D", "grade_points": 1.0, "passing": true},
+    {"symbol": "D-", "grade_points": 0.67, "passing": true},
+    {"symbol": "E", "grade_points": 0.0, "passing": false, "counts_toward_credits": false},
+    {"symbol": "ABS", "grade_points": 0.0, "passing": false, "counts_toward_credits": false},
+    {"symbol": "UNS", "grade_points": 0.0, "passing": false, "counts_toward_credits": false},
+    {"symbol": "EXLD", "grade_points": 0.0, "passing": false, "counts_toward_credits": false},
+    {"symbol": "SAT", "grade_points": null, "counts_toward_gpa": false, "passing": true}
+  ],
+  "credit_system": {"unit": "generic_credit"},
+  "gpa_formula": {"kind": "weighted_mean", "scale_max": 4.0, "scale_min": 0.0, "rounding": "none", "decimal_places": 2, "description": "Numerical average of letter-graded FAS courses for degree credit.", "expression": "sum(gp * credits) / sum(credits)"},
+  "repeat_course_rules": {"kind": "unknown", "description": "Not fully specified on GPA faculty page.", "provenance": {"status": "unverified"}},
+  "pass_fail": {"treatment": "exclude_from_gpa", "pass_symbols": ["SAT", "SEM"], "fail_symbols": [], "description": "Non-letter excluded unless failing."},
+  "degree_classification": {"applies": false, "description": "Latin honours thresholds vary by class year."},
+  "official_sources": [
+    {"title": "Grade Point Averages | FAS Information for Faculty", "url": "https://infoforfaculty.fas.harvard.edu/book/grade-point-averages", "source_class": "registrar", "retrieved": "2026-09-18"},
+    {"title": "FAS Registrar Transcripts", "url": "https://registrar.fas.harvard.edu/transcripts", "source_class": "registrar", "retrieved": "2026-09-18"}
+  ],
+  "verification_date": "2026-09-18",
+  "unverified_fields": ["repeat_course_rules.kind", "degree_classification.latin_honours"],
+  "notes": ["No A+ on published FAS 4-point scale."]
+}

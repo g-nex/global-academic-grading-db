@@ -1,0 +1,37 @@
+{
+  "scheme_id": "ch-ethz-ug-6pt-current",
+  "university": {"slug": "ethz", "name": "ETH Zurich", "country_iso2": "CH", "homepage": "https://ethz.ch/"},
+  "country": {"iso2": "CH", "name": "Switzerland"},
+  "faculty_program": {"slug": "university-wide", "name": "ETH Zurich grading system", "kind": "university_wide"},
+  "degree_level": "undergraduate",
+  "academic_year": {"start": 2016, "label": "1.0–6.0 scale (current)", "open_ended": true},
+  "name": "ETH Zurich 6.0 scale (pass ≥ 4.0)",
+  "grade_boundaries": [
+    {"symbol": "6.0", "label": "excellent", "grade_points": 6.0, "passing": true},
+    {"symbol": "5.75", "grade_points": 5.75, "passing": true},
+    {"symbol": "5.5", "grade_points": 5.5, "passing": true},
+    {"symbol": "5.25", "grade_points": 5.25, "passing": true},
+    {"symbol": "5.0", "grade_points": 5.0, "passing": true},
+    {"symbol": "4.75", "grade_points": 4.75, "passing": true},
+    {"symbol": "4.5", "grade_points": 4.5, "passing": true},
+    {"symbol": "4.25", "grade_points": 4.25, "passing": true},
+    {"symbol": "4.0", "label": "pass", "grade_points": 4.0, "passing": true},
+    {"symbol": "3.5", "grade_points": 3.5, "passing": false, "counts_toward_credits": false},
+    {"symbol": "3.0", "grade_points": 3.0, "passing": false, "counts_toward_credits": false},
+    {"symbol": "2.5", "grade_points": 2.5, "passing": false, "counts_toward_credits": false},
+    {"symbol": "2.0", "grade_points": 2.0, "passing": false, "counts_toward_credits": false},
+    {"symbol": "1.0", "grade_points": 1.0, "passing": false, "counts_toward_credits": false}
+  ],
+  "credit_system": {"unit": "ects", "typical_full_time_load_per_year": 60},
+  "gpa_formula": {"kind": "weighted_mean", "scale_max": 6.0, "scale_min": 1.0, "rounding": "none", "decimal_places": 2, "description": "Weighted average; blocks pass if average ≥ 4.0.", "expression": "sum(grade * weight) / sum(weight)"},
+  "repeat_course_rules": {"kind": "last_attempt_only", "description": "Failed assessments may be repeated once.", "max_attempts": 2, "provenance": {"status": "partial"}},
+  "pass_fail": {"treatment": "exclude_from_gpa", "pass_symbols": ["pass"], "fail_symbols": ["fail"], "description": "Some pass/fail only."},
+  "degree_classification": {"applies": false, "description": "Pass threshold 4.0; no ECTS rank mapping for degree class."},
+  "official_sources": [
+    {"title": "ETH Zurich Grading System and ECTS Grades PDF", "url": "https://ethz.ch/content/dam/ethz/special-interest/itet/department/Studies/Forms/20160112_Grading_System.pdf", "source_class": "registrar", "retrieved": "2026-09-18"},
+    {"title": "Degrees, credits and grading system", "url": "https://ethz.ch/en/studium/rechtliches-abschluesse.html", "source_class": "academic_regulations", "retrieved": "2026-09-18"}
+  ],
+  "verification_date": "2026-09-18",
+  "unverified_fields": [],
+  "notes": ["Scale 6.0 best to 1.0 worst; pass ≥ 4.0."]
+}
